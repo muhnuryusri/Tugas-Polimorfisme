@@ -1,0 +1,67 @@
+from abc import ABCMeta, abstractmethod
+
+class FakultasTeknik(metaclass=ABCMeta):
+    @abstractmethod
+    def cetakData(self):
+        pass
+
+class Tekom(FakultasTeknik):
+    def __init__(self, univ, fak, tahun_ajar, jum_angkatan):
+        self.univ = univ
+        self.fak = fak
+        self.tahun_ajar = tahun_ajar
+        self.jum_angkatan = jum_angkatan
+
+    def cetakData(self):
+        print("Universitas\t\t :", self.univ)
+        print("Fakultas\t\t :", self.fak)
+        print("Tahun Ajar\t\t :", self.tahun_ajar)
+        print("Jumlah Angkatan\t :", self.jum_angkatan)
+
+class Meka(FakultasTeknik):
+    def __init__(self, univ, fak, tahun_ajar, jum_angkatan):
+        self.univ = univ
+        self.fak = fak
+        self.tahun_ajar = tahun_ajar
+        self.jum_angkatan = jum_angkatan
+
+    def cetakData(self):
+        print("Universitas\t\t :", self.univ)
+        print("Fakultas\t\t :", self.fak)
+        print("Tahun Ajar\t\t :", self.tahun_ajar)
+        print("Jumlah Angkatan\t :", self.jum_angkatan)
+
+class PTIK(FakultasTeknik):
+    def __init__(self, univ, fak, tahun_ajar, jum_angkatan, jurusan):
+        self.univ = univ
+        self.fak = fak
+        self.tahun_ajar = tahun_ajar
+        self.jum_angkatan = jum_angkatan
+        self.jurusan = jurusan
+
+    def cetakData(self):
+        print("Universitas\t\t :", self.univ)
+        print("Fakultas\t\t :", self.fak)
+        print("Tahun Ajar\t\t :", self.tahun_ajar)
+        print("Jumlah Angkatan\t :", self.jum_angkatan)
+        print("Jurusan\t\t\t :", self.jurusan)
+
+def main():
+    obj = Tekom('Universitas Negeri Makassar', 'Fakultas Teknik', '2018', '90')
+    print("TEKNIK KOMPUTER")
+    obj.cetakData()
+
+    del obj
+
+    obj = Meka('Universitas Negeri Makassar', 'Fakultas Teknik', '2018', '110')
+    print("\nMEKATRONIKA")
+    obj.cetakData()
+
+    del obj
+
+    obj = PTIK('Universitas Negeri Makassar', 'Fakultas Teknik', '2018', '96', 'Elektronika')
+    print("\nPENDIDIKAN TEKNIK INFORMATIKA DAN KOMPUTER")
+    obj.cetakData()
+
+if __name__ == "__main__":
+    main()
